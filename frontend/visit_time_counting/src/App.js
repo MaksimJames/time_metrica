@@ -108,7 +108,7 @@ function App() {
     Fingerprint2.get((components) => {
       const values = components.map((component) => component.value);
       const fingerprint = Fingerprint2.x64hash128(values.join(''), 31);
-      storage.setItem('browserFingerprint', fingerprint); // Сохраните отпечаток в localStorage
+      storage.setItem('browserFingerprint', fingerprint);
       callback(fingerprint);
     });
   }
@@ -116,7 +116,6 @@ function App() {
   return (
     <Router>
       <div>
-        {/* Navigation */}
         <nav>
           <ul>
             <li>
@@ -128,12 +127,10 @@ function App() {
           </ul>
         </nav>
 
-        {/* Display time spent on the website */}
         <div>
           <h2>Время проведенное на сайте: {timeSpent} секунд</h2>
         </div>
 
-        {/* Routes */}
         <Routes>
           <Route path="/" element={<div>
             <h1>Текст-рыба</h1>
