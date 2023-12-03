@@ -1,0 +1,45 @@
+{
+  "name": "visit_time_counting",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fingerprintjs/fingerprintjs": "^4.2.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "fingerprintjs2": "^2.1.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
+    "react-scripts": "^3.0.1",
+    "socket.io-client": "^4.7.2",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+    "build": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/fingerprintjs2": "^2.0.0"
+  }
+}
