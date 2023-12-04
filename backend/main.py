@@ -50,6 +50,12 @@ app.add_middleware(
 )
 
 
+class SessionsListData(BaseModel):
+    session_id:     str
+    time_spend:     int
+    fingerprint:    str
+
+
 class StatsResponseData(BaseModel):
     fingerprint:    str
     time_spent:     float
@@ -87,14 +93,24 @@ async def websocket_endpoint(websocket: WebSocket):
         pass
 
 
-@app.get("/sessions/")
+@app.get("/sessions/", response_model=List[SessionsListData])
 def get_sessions():
+    """
+        Retrieves a list of sessions from the database.
+        Returns:
+            A list of SessionsListData objects representing the sessions.
+    """
     db = SessionSession()
     sessions = db.query(Session).all()
-    return sessions
+    return [SessionsListData(session_id=session.session_id, time_spend=session.time_spend, fingerprint=session.fingerprint) for session in sessions]
 
 
 @app.get("/stats/", response_model=List[StatsResponseData])
 async def get_stats():
+    """
+        Get statistics of average time spent by fingerprint.
+        Returns:
+            List[StatsResponseData]: A list of statistics response data objects.
+    """
     res = session.query(Session.fingerprint, func.avg(Session.time_spend)).group_by(Session.fingerprint).all()
     return [StatsResponseData(fingerprint=row[0], time_spent=row[1]) for row in res]
