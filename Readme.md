@@ -32,4 +32,4 @@ Browser fingerprint is used to indicate user separation.
 It is possible to use for example access token or other attribute
 - For more accurate measurement, you could not count the time of the active tab, but send events with mouse coordinates by timeout.
 - If the coordinates have not changed for a certain period of time, it can be considered that the user is not looking at the page.
-- Так же можно установить страницам коэффициенты. Потому что некоторые страницы могут содержать мало контента а другие очень много. И время на прочитывание будет разным. И умножать этот коэффициент на таймаут.
+- You can also set coefficients for pages. Because some pages may contain little content and others very much. And the reading time will be different. And multiply this coefficient by timeout.
